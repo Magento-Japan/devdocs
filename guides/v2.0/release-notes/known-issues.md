@@ -9,80 +9,82 @@ github_link: release-notes/known-issues.md
 redirect_from: /guides/v1.0/release-notes/known-issues.html
 ---
 
-<h2 id="known-devbeta">Known issues</h2>
-This page discusses known issues in all Magento 2 releases starting with Developer Beta in December, 2014.
+<h2 id="known-devbeta">既知の問題</h2>
+このページは2014年12月に始まったMagento2ディベロッパーベータでの既知の問題について記述してあります。
 
-We have identified the following known issues in this release:
+現在このリリースでは以下の既知の問題が検知されています：
 
 <!-- *   <a href="#known-devbeta-sampledata">Magento sample data is available only if you edit composer.json</a>
  -->
-*   <a href="known-composer-clear-cache">You might need to clear your Composer cache</a>
-*   <a href="#known-devrc-php">Known issue with timezone in certain PHP versions</a>
-*   <a href="#known-devbeta-xdebug">Known issue with xdebug</a>
-*   <a href="#known-devbeta-storefront-err">Access errors</a>
-*   <a href="#known-devbeta-wiz-fail-bogus">Setup Wizard reports failure falsely</a>
-*   <a href="#known-devbeta-wiz-fail-installog">Setup Wizard fails because of no installation log</a>
+*   <a href="known-composer-clear-cache">Composerキャッシュをクリアしなければならないかもしれない</a>
+*   <a href="#known-devrc-php">特定PHPバージョンでタイムゾーンの既知の問題</a>
+*   <a href="#known-devbeta-xdebug">xdebugの既知の問題</a>
+*   <a href="#known-devbeta-storefront-err">アクセスエラー</a>
+*   <a href="#known-devbeta-wiz-fail-bogus">セットアップウィザード失敗の誤報</a>
+*   <a href="#known-devbeta-wiz-fail-installog">インストールログがないためにセットアップウィザードが失敗する</a>
 <!-- *   <a href="#known-devbeta-wiz-fail-session-save">session.save_path issue</a> -->
 
 <!-- <h3 id="known-issue-sample">Issue installing optional sample data</h3> -->
 <!-- https://jira.corp.x.com/browse/MAGETWO-32879 -->
 <!-- Errors display when you attempt to install optional Magento sample data. We are working on this issue and expect a resolution in the near future. -->
 
-<h3 id="known-composer-clear-cache">You might need to clear your Composer cache</h3>
+<h3 id="known-composer-clear-cache">Composerキャッシュをクリアしなければならないかもしれない</h3>
 {% include install/composer-clear-cache.html %}
 
-<h3 id="known-devrc-php">Known issue with timezone in certain PHP versions</h3>
-This issue affects builds *earlier than* 0.74-beta10 only. If you have a later build, you can ignore this issue.
+<h3 id="known-devrc-php">特定PHPバージョンでタイムゾーンの既知の問題</h3>
+この問題は0.74beta10ビルド以前のみに影響します。以降のビルドをお使いの場合はこの問題は無視してください。
 
-There is a <a href="https://bugs.php.net/bug.php?id=66985" target="_blank">known PHP issue</a> with versions:
+<a href="https://bugs.php.net/bug.php?id=66985" target="_blank">known PHP issue</a>が次のバージョンにあります:
 
 *   5.5.10&ndash;5.5.16
 *   5.6.0
 
-This issue prevents users from being able to set their timezones to Greenwich time and several other time zones. 
+この問題はユーザーから自身のタイムゾーンをグリニッジ標準時やその他のタイムゾーンに設定することできなくします。
 
-To work around this issue, after installing the Magento 2 software, edit the following files:
+この問題を回避するためにMagento2ソフトウェアをインストール後に以下のファイルを編集してください:
 
 *   `app/code/Magento/Config/Model/Config/Backend/Locale/Timezone.php`
 *   `lib/internal/Magento/Framework/Locale/Lists.php`
 *   `setup/src/Magento/Setup/Model/Lists.php`
 
-In each file, change the value of `$zones` as follows:
+各ファイルにて`$zones`の値を以下の様に変更してください：
 
-from
+編集前
 
     $zones = \DateTimeZone::listIdentifiers(\DateTimeZone::ALL_WITH_BC);
 
-to
+編集後
 
     $zones = \DateTimeZone::listIdentifiers(\DateTimeZone::ALL);
 
 
-<h3 id="known-devbeta-xdebug">Known issue with xdebug</h3>
-If you use the optional PHP extension `xdebug`, you can encounter exceptions:
+<h3 id="known-devbeta-xdebug">xdebugの既知の問題</h3>
+もしオプショナルPHPエクステンション`xdebug`をお使いの場合、エクセプションに遭遇するかもしれません:
 
-*   During installation 
-*   Accessing either the Magento Admin or storefront after a successful installation 
+*   インストール中 
+*   Magento Adminあるいはストアフロントのどちらかにインストール成功後にアクセスした場合 
 
-Sample exception:
+サンプルエクセプション:
 
     Fatal error: Maximum function nesting level of '100' reached, aborting!
 
-To resolve this issue, you can:
+この問題を解決するためには:
 
-*   Disable the `xdebug` extension.
-*   Set the value of `xdebug.max_nesting_level` to a value of 200 or more. For more information, see <a href="http://xdebug.org/docs/basic#max_nesting_level" target="_blank">xdebug documentation</a>.
+*   `xdebug`エクステンションを無効化
+*  `xdebug.max_nesting_level`の値を200か以上に設定してください。 更なる情報のためには、 <a href="http://xdebug.org/docs/basic#max_nesting_level" target="_blank">xdebug documentation</a>を御覧ください。
+
 
 After you change the configuration of or disable `xdebug`, restart Apache:
+コンフィギュレーションを変更か`xdebug`を無効化した後に, Apacheを再起動してください:
 
 *   CentOS: `sudo service httpd restart`
 *   Ubuntu: `sudo service apache2 restart`
 
-<h3 id="known-devbeta-storefront-err">Access errors</h3>
+<h3 id="known-devbeta-storefront-err">アクセスエラー</h3>
 
-<!-- <a href="https://jira.corp.x.com/browse/MAGETWO-31834">MAGETWO-31834</a> and <a href="https://jira.corp.x.com/browse/MAGETWO-31180">MAGETWO-31180</a> --> Errors might display when you attempt to access the Magento storefront or Magento Admin after installation:
+インストール後にMagentoストアフロントかMagento Adminにアクセスしようとするとエラーが表示されることがあります:
 
-Storefront:
+ストアフロント:
 
     "Can't create directory /var/www/html/m/var/generation/Magento/Framework/App/PageCache/Identifier/."
     #0 /var/www/html/m/lib/internal/Magento/Framework/Code/Generator/Autoloader.php(34): Magento\Framework\Code\Generator->generateClass('Magento\\Framewo...')
@@ -98,36 +100,36 @@ Magento Admin:
     #2 /var/www/html/ui/lib/internal/Magento/Framework/ObjectManager/ObjectManager.php(71): Magento\Framework\ObjectManager\Factory\Factory->create('Magento\\Logging...')
     ... more
 
-In either case, try accessing the storefront or Magento Admin again.
+どちらのケースでもストアフロントかMagento Adminに再度アクセスしてみてください。
 
-<h3 id="known-devbeta-wiz-fail-bogus">Setup Wizard reports failure falsely</h3>
+<h3 id="known-devbeta-wiz-fail-bogus">セットアップウィザード失敗の誤報</h3>
 
-<!-- <a href="https://jira.corp.x.com/browse/MAGETWO-31949">MAGETWO-31949</a> --> In some cases, the Setup Wizard appears to have failed when it has not failed. 
+まれにセットアップウィザードが実際には失敗してないのに失敗したように表示されることがあります。 
 
-Symptoms:
+事象例:
 
-*   The following message displays at the top of your browser on the last page: `Installation is incomplete. Check the console log for errors before trying again.`
-*   If you open the console, a success message displays at the bottom with no errors or exceptions.
+*   以下のメッセージが最後のページのブラウザーのトップに表示されます: `Installation is incomplete. Check the console log for errors before trying again.`
+*   コンソールを開いて成功のメッセージがページの最後に表示されエラーやエクセプションが表示されない。 
 
-In this case, the installation *was* successful. You can access the storefront and Magento Admin as discussed in <a href="{{ site.gdeurl }}install-gde/install/verify.html">Verify the installation</a>.
+この場合インストールは成功です。 <a href="{{ site.gdeurl }}install-gde/install/verify.html">Verify the installation</a>で述べられたようにストアフロントとMagento Adminにアクセスすることが可能です。
 
-To access your Magento-created encryption key:
+Magento生成の暗号キーにアクセスするには:
 
-1.  Log in to your Magento server as a user with `root` privileges.
-2.  Do any of the following:
+1.  `root`権限のあるユーザーでMagentoサーバーにログインしてください。
+2.  以下のどちらかをおこなってください:
 
-    *   Build 0.74-beta9 or earlier: Open `<your Magento install dir>/app/etc/config.php` in a text editor.
-    *   Build 0.74-beta10 or later: Open `<your Magento install dir>/app/etc/env.php` in a text editor.
+    *   Build 0.74-beta9 あるいはそれ以前: `<your Magento install dir>/app/etc/config.php`をテキストエディターで開く。 
+    *   Build 0.74-beta10 あるいはそれ以降: `<your Magento install dir>/app/etc/env.php`をテキストエディターで開く。 
     
-3.  Locate the value of `'key' =>`.
+3.  `'key' =>`の値を見つける
         
-This is your encryption key.
+これが暗号キーです。
 
-<h3 id="known-devbeta-wiz-fail-installog">Setup Wizard fails because of no installation log</h3>
+<h3 id="known-devbeta-wiz-fail-installog">インストールログがないためにセットアップウィザードが失敗する</h3>
 
-<!-- <a href="https://jira.corp.x.com/browse/MAGETWO-31850">MAGETWO-31850</a> -->In some cases (such as running the Setup Wizard in two browser windows or tab pages at the same time), the installation fails because it cannot create `install.log`. 
+まれに (例えばセットアップウィザードを同時に２つのブラウザウィンドウで走らせたり、タブで開いたりすると), `install.log`が生成されずインストールが失敗することがあります。 
 
-To work around this issue, see <a href="{{ site.gdeurl }}install-gde/trouble/tshoot_install-log.html">Installation fails; cannot create install.log</a>
+この問題を回避するには <a href="{{ site.gdeurl }}install-gde/trouble/tshoot_install-log.html">Installation fails; cannot create install.log</a>を御覧ください。
 
 <!-- <h3 id="known-devbeta-wiz-fail-session-save">session.save_path issue</h3>
 
