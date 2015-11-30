@@ -10,61 +10,60 @@ github_link: architecture/arch_whatis.md
 redirect_from: /guides/v1.0/architecture/arch_whatis.html
 ---
 
-<h2 id="m2arch-whatis-overview">What is Magento?</h2>
+<h2 id="m2arch-whatis-overview">Magentoとは?</h2>
 
-Magento is a highly customizable e-commerce platform and content management system that you can use to build online storefronts or web sites for selling merchandise. Magento provides common e-commerce features, such as shopping carts and inventory management, and encourages extensive customization to meet your organization’s specific goals. 
+Magentoはオンラインストアや商品を売るウェブサイトを作成するために使える高度にカスタマイズ可能なEコマースプラットフォームでありコンテンツ管理システムです。Magentoはショッピングカートや在庫管理などの一般的なEコマース機能を提供する他、あなたの組織の具体的なゴールに見合うように大規模なカスマイズに貢献します。
 
-The essential principles of Magento’s powerful and highly scalable product architecture include:
+Magentoの強力で高度に拡張可能な製品構造の主要な原則は以下を含みます：
 
-<h3>OOP architecture and programming principles</h3> are inherent in Magento’s design. Object-Oriented Programming (OOP) design allows for maximum flexibility and extensibility of software components, permitting you to design and implement highly customized web sites. The advantages of OOP principles include incorporation of industry-standard programming design patterns and the strict separation of business logic from presentation. Object inheritance is important, too: In keeping with classic object-oriented programming methodology, the Magento platform provides core components with base functionality that can be inherited by custom components for a specific web site or application.
-
-<h3>Strongly layered product architecture</h3> supports the separation of visual presentation from business logic. This compartmentalization simplifies customization of store appearance and behavior. Architectural layers also provide programmers with a high level-model for understanding the most optimal placement of features and code in a complex system. Magento tweaks the classic Model-View-Controller architectural model, though: Files within modules are typically grouped by functionality rather than file type. 
-
-The <i>Magento Framework</i> defines the fundamental concepts and rules for how the components of the web site can behave. The Magento framework contains libraries that modules access but no business logic components. It accepts HTTP requests and routes them to the appropriate module. 
+<h3>OOP構造とプログラミング原則</h3>はMagentoのデザインにて固有のものです。オブジェクト指向プログラミング(OOP)デザインはソフトウェアコンポーネントの最大の柔軟性と拡張性を可能にし、高度にカスタマイズされたウェブサイトをデザインし実装することことができます。OOP原則の優位点は産業スタンダードのプログラミングデザインパターンとプレゼンテーションからビジネスロジックの明確な分離の結合を含むことです。オブジェクト固有も重要です: 古典的オブジェクト指向プログラミング方法論を保持しつつ、Magentoプラットフォームは特定のウェブサイトかアプリケーションのためのカスタムコンポーネントを継承された基本機能を含むコアコンポーネントを提供します。
 
 
-The Magento Framework is integrated with the following software layers: 
+<h3>レイヤー化された製品構造</h3>はビジネスロジックからビジュアルプレゼンテーションを分離することをサポートします。 この区画化はストアの見た目や動きのカスタム化を簡素化します。構造的レイヤーはプログラマーに最も最適の特色と複雑なシステム内のコードを理解するための高度なレベルモデルを提供します。しかしながらMagentoは従来のModel-View-Controllerモデルに手を加えます: モジュール内のファイルは大抵ファイルタイプより機能にてグループ化されます。
+
+<i>Magentoフレームワーク</i>はウェブサイトのコンポーネントがどのように挙動するかの基本的コンセプトとルールを定義します。Magentoフレームワークはモジュールがアクセスする、ビジネスロジックコンポーネントはできない、ライブラリが含まれます。HTTPリクエストを受け付けて、適切なモジュールに転送します。
+
+Magentoフレームワークは以下のソフトウェアレイヤーで統合されています:
 
 
-* <b>Presentation layer</b> provides both view components (layouts, blocks, templates) and controllers, which process commands to and from the user interface. The presentation layer can also include web API service bindings. (We include these service bindings in this discussion of the presentation layer model because  web API calls come in through HTTP just like browser requests, and can be made via AJAX calls from the user interface. Consequently, while web API calls can originate from an external application, they  can also originate from the user interface.)
+* <b>プレゼンテーションレイヤー</b> はコマンドをユーザーインターフェイスへの送り受けを処理するビューコンポーネント（レイアウト、ブロック、テンプレート）とコントローラーの両方を提供します。プレゼンテーションレイヤーはまたウェブAPIサービスバインディングを含みます。 (ウェブAPIコールはブラウザのリクエストのようにHTTPを通してくることがあり、ユーザーインターフェイスからAJAXコールを通して送られることもあります、そのためこのプレゼンテーションレイヤーモデルの解説にサービスバインディングを含みました。従って、ウェブAPIコールは外部アプリケーションから発信されることがあり、ユーザーインターフェイスから発信されることもあります。)
 
-* <b>Service layer</b>, through the use of service contracts, defines the overall interface for interacting with business logic (for example, creating customers and getting tax rates). Service contracts simplify the process of replacing or modifying (via plugins) services.
+* <b>サービスレイヤー</b>はビジネスロジック（例えば顧客作成や税率設定）と接するための全体的なインターフェイスをサービスコントラクトの使用を通して定義します。サービスコントラクトはサービスの入れ替えや（プラグインを通しての）変更の手順を簡素化します。
 
 
-* <b>Domain layer</b> provides core business logic and functionality in base classes, resource models, and data access capabilities that you can extend and customize. Business logic rules, which define how data is retrieved from the database and manipulated, are stored in the Business Logic layer.
+* <b>ドメインレイヤー</b> は拡張したりカスタマイズ可能なコアビジネスロジック、ベースクラスの機能、リソースモデル、データアクセス能力を提供します。データがどのようにデータベースから取り出されて操作されるかを定義するビジネスロジックルールはビジネスロジックレイヤーに保存されます。 
 
+ <h3>拡張性の緩和</h3>
+Magentoはディペンデンシーインジェクションとサービスコントラクトを定義済みAPIの新しい実装の提供の手順を簡略化するために使用します。
  
- <h3>Ease of extensibility</h3>
- Magento uses dependency injection and service contracts to simplify the process of supplying a new implementation of a defined API. 
- 
- Dependency injection benefits include:
+ ディペンデンシーインジェクション利点は:
   
-* the client that uses a module or service can remain ignorant of the module’s or service’s  implementation details
+* モジュールかサービスを使うクライアントはモジュールかサービスの実装詳細に関して無関係であることができます
  
-* you can modify a module without altering the client from anywhere you use the dependency injection framework to wire application logic together.
+* モジュールをディペンデンシーインジェクションフレームワークを使いアプリケーションロジックをつなぎ合わせるどの場所でもクライアントを変えることなく変更することが可能です。
  
-Service Contracts provide a new way to access public API endpoints. These PHP interfaces to modules streamline the use of APIs for most modules.
+サービスコントラクトは公的APIエンドポイントへアクセスする新たな手段を提供します。これらのモジュールのPHPインターフェイスはほとんどのモジュールへのAPIの使用を効率化します。
 
-<h3>Modularity</h3>
-Modules form the basic functional unit of a Magento system. Magento modules contain the logic to execute required actions and functions. You extend the core feature set of Magento by writing and incorporating new modules into your installation. Use Magento themes and language packages to create your store’s visual design and language capabilities. 
+<h3>モジュール化</h3>
+モジュールはMagentoシステムの基礎的なファンクショナルユニットを構成します。Magentoモジュールは要求されたアクションとファンクションを実行するロジックを含みます。新しいモジュールをインストールするものに書いたり編入することによって、Magentoのコアフィーチャーセットを拡張することができます。Magentoのテーマと言語パッケージをを使ってあなたのストアのビジュアルデザインと言語対応化を作成してください。
 
-<h3>Highly customizable store branding</h3>
-Extend and customize the core components of your Magento store's PHP-, HTML5- and CSS3- based default themes and language packages to precisely control your site’s behavior and look-and-feel.
+<h3>高度にカスタマイズできるストアブランディング</h3>
+あなたのサイトの挙動や見た目を正確にコントロールするためにMagentoストアのPHP-,HTML5-,CSS3ベースのディフォルトテーマと言語パッケージのコアコンポーネントを拡張とカスタマイズしてください。
  
- <h3>Strong stack of open-source technologies</h3>
-The Magento tech stack supplies a robust toolset for deploying large, distributed storefronts and for customizing the product for your particular needs. The Magento stack includes popular open-source technologies such as the Linux OS, Apache/Nginx server, MySQL, Zend, and Composer.For a comprehensive description of the Magento technology stack, see <a href="{{ site.gdeurl }}architecture/tech-stack.html">Magento Technology Stack</a>. 
+ <h3>オープンソース技術のスタック</h3>
+Magentoの技術スタックは堅牢なツールセットを膨大な分散した店舗ならびに製品をあなたの個別の必要性にカスタマイズできるように提供されています。Magentoのスタックは有名なオープンソース技術であるLinux OS, Apache/Nginx server, MySQL, Zend, そして Composerを含んでいます。^M^M^M更なるMagento技術スタックの詳細については<a href="{{ site.gdeurl }}architecture/tech-stack.html">Magento Technology Stack</a>を御覧ください。
 
-With Magento 2.0, the Magento product architecture continues its evolution toward increased modularity.
+Magento2.0にてMagento製品構造は増加するモジュール性に向けて進化を続けます。
 
 
 <div class="bs-callout bs-callout-info" id="info">
 
-  <p>For more information about designing and extending the Magento components, refer to the <a href="{{ site.gdeurl }}extension-dev-guide/bk-extension-dev-guide.html">Extension Developer Guide</a>.</p>
+  <p>Magentoコンポーネントのデザインと拡張についての更なる情報については<a href="{{ site.gdeurl }}extension-dev-guide/bk-extension-dev-guide.html">Extension Developer Guide</a>を御覧ください。</p>
 
 </div>
 
 
-<h3 id="m2arch-related">Related topics</h3>
+<h3 id="m2arch-related">関連するトピック</h3>
 
 * <a href="{{ site.gdeurl }}architecture/arch_asmodsys.html">Magento as a modular system</a>
 
