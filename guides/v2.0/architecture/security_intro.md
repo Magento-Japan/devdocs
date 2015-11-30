@@ -8,30 +8,30 @@ menu_order:
 github_link: architecture/security_intro.md
 ---
 
-<h2 id="security_intro">Security overview</h2>
-Magento 2.0 includes the following security enhancements: 
+<h2 id="security_intro">セキュリティ概要</h2>
+Magento 2.0 は以下のセキュリティ向上を含んでいます:
 
 
 
-* <b>Enhanced password management</b>. Magento has strengthened the hashing algorithms (SHA-256) used in password management. 
+* <b>パスワード管理向上</b>. Magentoはパスワード管理に使われるハッシングアルゴリズム(SHA-256)を強化しました。 
 
 
-* <b>Improved prevention of cross-site scripting (XSS) attacks by making escaped data the default</b>. The Magento Framework has adopted conventions that regulate the escaping of data in output. These conventions include the ability to escape  output for HTML pages (HTML, JSON, and JavaScript) and email. Where possible, escaping is transparent to client code. See <a href="{{ site.gdeurl }}frontend-dev-guide/templates/template-security.html">Security measures against XSS attacks</a> in the Frontend Developer Guide. 
+* <b>エスケープされたデータをディフォルトにすることによってクロスサイトスクリプティング攻撃の防止を改善</b>。Magentoフレームワークはアウトプット内のデータをエスケープする制御する規定を採用しています。これらの規定はHTMLページ（HTML,JSON,JavaScript）とEメールのためのアウトプットをエスケープする能力を含みます。 可能な箇所で、エスケープはクライアントコードに対して可視化されます。 フロントエンドディベロッパーガイドの <a href="{{ site.gdeurl }}frontend-dev-guide/templates/template-security.html">Security measures against XSS attacks</a> を御覧ください。 
 
-* <b>Restricted permissions for file access</b>. Ability to set discrete file access for production and developer  modes. This change tightens security on generated files, static files, and any files and directories created by Magento (including logs, backups, and reports). See <a href="{{ site.gdeurl }}install-gde/install/file-system-perms.html"> Set file system ownership and permissions </a> in the Installation Guide.
+* <b>ファイルアクセスへの許可制限</b>。限定されたファイルアクセスをプロダクションとディベロッパーモードに設定が可能。この変更が生成されたファイル、静的ファイル、その他様々なMagentoで作られたファイルやディレクトリー（ログ、バックアップ、レポートを含む）のセキュリティーを強化します。インストールガイドの <a href="{{ site.gdeurl }}install-gde/install/file-system-perms.html"> Set file system ownership and permissions </a>を御覧ください。
 
-	Magento also provides  a CLI command that switches between developer mode and production mode. When you use the command to switch mode, the system also changes file system permissions. In production mode,   directory permissions are set to 750, and file permissions are set to 640. In developer mode, directory permissions are set to 770, and file permissions are set to 660. 
+	またMagentoはディベロッパーモードとプロダクションモードの間を変換できるCLIコマンドを提供します。このコマンドを使用してモードを変更する時、システムはファイルシステムのパーミッションを変更します。プロダクションモードでは、ディレクトリのパーミッションは750に、ファイルパーミッションは640に設定されます。ディベロッパーモードではディレクトリのパーミッションは770に、ファイルのパーミッションは660に設定されます。 
 	
-	(Permissions need to vary due to user need, of course. For example, the Magento file system owner must own the file system. In contrast, the web server user needs read access only to the file system and write access to some directories (such as `pub/media`). And the web server user should not have write access to the entire Magento file system. For more information, see <a href="{{ site.gdeurl }}install-gde/prereq/apache-user.html"> Create the magento file system owner</a>.)
+	(もちろんパーミッションはユーザーの必要に応じて変更する必要があります。例として、Magentoファイルシステムオーナーはファイルシステムの権限を所持してなければなりません。対照的に、ウェブサーバーユーザーは読み権限のみファイルシステムに必要で書き込み権限が幾つかのディレクトリに必要です（例えば'pub/media'）。そしてウェブサーバーユーザーは全てのMagentoファイルシステムに書き込み権限を持つべきではありません。更なる情報については、 <a href="{{ site.gdeurl }}install-gde/prereq/apache-user.html"> Create the magento file system owner</a>.)を御覧ください。
 
-* <b>Improved prevention of clickjacking exploits</b>. Magento safeguards your store from clickjacking attacks by using an X-Frame-Options HTTP request header. For more information, see <a href="{{ site.gdeurl }}config-guide/secy/secy-xframe.html"> X-Frame-Options header</a>.
+* <b>クリックジャッキング手法の防止改善</b>。Magentoはあなたのお店をX-Frameオプションズ HTTP リクエストヘッダを使うことによってクリックジャッキング攻撃から保護します。 更なる情報については, <a href="{{ site.gdeurl }}config-guide/secy/secy-xframe.html"> X-Frame-Options header</a>を御覧ください。
 
-* <b>Use of non-default admin URL</b>. A default admin URL makes it easy to target attacks on specific locations using automated password guessing. To prevent against this type of attack, Magento by default creates a random Admin URI when you install the product. The CLI is provided so that you can  see the password if you forget it. You can also use the CLI change this URI.  Although the use of a non-default admin URL will not secure the site, its use will help prevent large-scale automated attacks. See <a href="{{ site.gdeurl }}install-gde/install/cli/install-cli-adminurl.html"> Display or change the Admin URI</a> in Configuration Guide for more information. 
-
-
+* <b>ディフォルトでない管理画面URLの使用</b>。ディフォルト管理画面のURLは特定画面に自動パスワード推測による攻撃を容易にします。この種の攻撃を防ぐためMagentoはディフォルトでランダムな管理画面URIを製品インストール時に生成します。CLIはもしパスワードをお忘れの時に見ることができるように提供されています。CLIをこのURIを変更するために使うことも可能です。ディフォルトでない管理画面のURIはサイトを安全にはしませんが、使うことによって更に大規模な自動化攻撃を防ぐことが出来ます。さらなる情報にはコンフィギュレーションガイドにある<a href="{{ site.gdeurl }}install-gde/install/cli/install-cli-adminurl.html"> Display or change the Admin URI</a> を御覧ください。 
 
 
-<h2>Related topics</h2>
+
+
+<h2>関連するトピック</h2>
 <a href="{{ site.gdeurl }}config-guide/bk-config-guide.html">Configuration Guide</a>
 
 
