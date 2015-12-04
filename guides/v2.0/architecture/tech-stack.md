@@ -8,24 +8,23 @@ menu_order: 2
 github_link: architecture/tech-stack.md
 redirect_from: /guides/v1.0/extension-dev-guide/tech-stack.html
 ---
-<h2>Magento technology stack</h2>
+<h2>Magento技術スタック</h2>
 
-Magento’s highly modular structure includes the following open-source technologies:
+Magentoの高度モジュール化構造は以下のオープンソース技術を含みます:
 
-
-Stack components include:
+スタックコンポーネントが含んでいるのは:
 
 * PHP (5.5 and 5.6)
 
-* Coding standards PSR-0 (autoloading standard), PSR-1 (basic coding standards), and PSR-2 (coding style guide), PSR-3, PSR-4
+* Coding standards PSR-0 (オートローディングスタンダード), PSR-1 (基本コーディングスタンダード), and PSR-2 (コーディングスタイルガイド), PSR-3, PSR-4
 
 * HTML5
 
 * CSS3 (LESS CSS pre-processor)
 
-* JQuery (primary JavaScript library)
+* JQuery (プライマリーJavaScriptライブラリ)
 
-* RequireJS (library that helps load JavaScript resources on demand)
+* RequireJS (要求によってJavaScriptリソースをロードするのを助けるライブラリ)
 * Third-party libraries (Zend Framework 1, Zend Framework 2, Symfony)
 
 * Apache 2.2, 2.4
@@ -34,21 +33,21 @@ Stack components include:
 
 
 * MySQL 5.6
-* Composer (dependency management package for PHP) 
+* Composer (PHPのための依存性管理パッケージ) 
 
-Optional stack components include:
+オプションスタックコンポーネントが含むのは:
 
-* Varnish (caching)
-* Redis (used for session or page caching)
-* Solr (search engine)
-
-
-Magento also provides an automated testing suite that includes test scripts for integration, functional areas, and performance. Components include PHPUnit for the unit test framework and Selenium for the functional test framework. 
-
-This framework is included in `Magento/mtf`. For more information, see Magento Test Framework guide.
-
-<h2>Related topics</h2>
-<a href="{{ site.gdeurl }}architecture/stack-basics.html"> Stack basics</a>
+* Varnish (キャッシング)
+* Redis (セッションのために使用またはページキャッシング)
+* Solr (検索エンジン)
 
 
-<a href="{{ site.gdeurl }}architecture/archi_perspectives/ABasics_intro.html">Architectural basics</a>
+Magentoは併合、機能エリア、パフォーマンスのためのテストスクリプトを含む自動化テストスイートも提供します。コンポーネントはユニットテストフレームワークのPHPUnitと機能テストフレームワークのSeleniumを含みます。
+
+このフレームワークは`Magento/mtf`に含まれています。更なる情報はMagentoテストフレームワークガイドを御覧ください。
+
+<h2>関連するトピック</h2>
+<a href="{{ site.gdeurl }}architecture/stack-basics.html">スタック基本</a>
+
+
+<a href="{{ site.gdeurl }}architecture/archi_perspectives/ABasics_intro.html">アーキテクチャー基本</a>

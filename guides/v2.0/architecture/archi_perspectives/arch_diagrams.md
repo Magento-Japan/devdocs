@@ -9,39 +9,39 @@ github_link: architecture/archi_perspectives/arch_diagrams.md
 redirect_from: /guides/v1.0/architecture/archi_perspectives/arch_diagrams.html
 ---
 
-<h2 id="m2arch-whatis-overview">Architectural diagrams</h2>
+<h2 id="m2arch-whatis-overview">アーキテクチャー図</h2>
+Magentoをもっと知るあなたの役割と目的によって、Magentoのアーキテクチャーの見方には複数の異なる見方があります。例えば、新しいモジュールを作成したいまたは既存モジュールをカスタマイズしたい開発者はモジュール自体のアーキテクチャーを理解したいでしょうし、またそれがさらに大きな視点にMagentoフレームワークや他のコンポーネントとともに当てはまるのかを理解したいと思われます。しかしながら、小売店業者で早急>にオンライン店舗を作成したい人はコンポーネントの種類を上位レベルから見たいでしょうし、見た目、使用感、ユーザーが関わるコンポーネントを理解したい
+でしょう。
 
-Depending upon your role and purpose for learning more about Magento, there are several different ways to view the Magento architecture. For example, a developer who wants to create new modules or perhaps customize an existing module will want to understand the architecture of a module itself, and how it fits into the larger view, with the Magento framework and other components. However, a merchant who wants to quickly build an online store front wants to view the collection of components from a higher level, and understand the components that impact the look, feel, and user interaction components.
+<h3 id="archi-layers">アーキテクチャーレイヤー図</h3>
 
-<h3 id="archi-layers">Architecture layers diagram</h3>
-
-The following diagram illustrates the components of Magento, and shows the "layers" or tiers, for all components, as well as the Magento framework, 3rd party libraries, the supported database, and other technologies.
+以下の図はMagentoのコンポーネントを表し、すべてのコンポーネントのレイヤーまたはTierを表し、さらにMagentoフレームワーク、サードパーティライブラリ、サポートするデータベース、そしてその他の技術を表しています。
 
 <p><img src="{{ site.baseurl }}common/images/archi_diagrams_layers_alt4.jpg" alt="Magento architecture layers"></p>
 
-<h3 id="archi-topo">Topology</h3>
+<h3 id="archi-topo">トポロジ</h3>
 
-The topology diagram illustrates a typical implementation. 
+トポロジ図は典型的実装を図解します。
 
 [//]: # "The technologies that are required, and must be implemented, are indicated; be aware that this is the components of Magento, and shows the "layer" or tiers, for each component, including the Magento framework, 3rd party libraries, the supported database, and other technologies."
 
-*Diagram will be published in a later sprint.*
+*図は今後のスプリントで公開されます*
 
-<h3 id="archi-module">Module diagram</h3>
+<h3 id="archi-module">モジュール図</h3>
 
-The module diagram illustrates the various components and dependencies within a typical Magento module. 
+モジュール図は典型的Magentoモジュール内の複数のコンポーネントと依存性のあるものを図解します。 
 
-*Diagram will be published in a later sprint.*
+*図は今後のスプリントで公開されます*
 
-<h3 id="archi-builder">Online store front diagram</h3>
+<h3 id="archi-builder">オンライン店舗図</h3>
 
-The following diagram shows the perspective of a user who wants to build an online store front or application. 
+以下の図はオンライン店舗かアプリケーションを作成したいユーザーの観点を表したものです。
 
-*Diagram will be published in a later sprint.*
+*図は今後のスプリントで公開されます*
 
 
-<h3 id="m2arch-related">Related topics</h3>
+<h3 id="m2arch-related">関連するトピック</h3>
 
-* <a href="{{ site.gdeurl }}architecture/arch_asmodsys.html">Magento as a modular system</a>
-* <a href="{{ site.gdeurl }}architecture/archi_perspectives/ALayers_intro.html">Architecture layers overview</a>
+* <a href="{{ site.gdeurl }}architecture/arch_asmodsys.html">モジュラーシステムとしてのMagento</a>
+* <a href="{{ site.gdeurl }}architecture/archi_perspectives/ALayers_intro.html">アーキテクチャーレイヤー概要</a>
 
