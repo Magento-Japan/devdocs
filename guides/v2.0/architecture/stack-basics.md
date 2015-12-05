@@ -7,17 +7,17 @@ menu_title: Stack basics
 menu_order: 2
 github_link: extension-dev-guide/stack-basics
 ---
-<h2>Stack basics</h2>
+<h2>スタック基本</h2>
 
 
-<i>Information about routing, caching, and indexing will be provided in a future sprint.</i>
+<i>ルーティング、キャッシング、インデックシングは今後のスプリントで提供されます。</i>
 
-<h3>Related topics</h3>
+<h3>関連するトピック</h3>
 
 
-<a href="{{ site.gdeurl }}architecture/tech-stack.html">Technology stack</a>
+<a href="{{ site.gdeurl }}architecture/tech-stack.html">技術スタック</a>
 
-<a href="{{ site.gdeurl }}architecture/archi_perspectives/ABasics_intro.html">Architectural basics</a>
+<a href="{{ site.gdeurl }}architecture/archi_perspectives/ABasics_intro.html">アーキテクチャー基本</a>
 
 
 

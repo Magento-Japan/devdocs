@@ -11,36 +11,36 @@ redirect_from: /guides/v1.0/architecture/archi_perspectives/ABasics_intro.html
 ---
 
 
-<h2>Architectural basics overview</h2>
+<h2>構造的基本の概要</h2>
 
-Magento incorporates the core architectural principles of object-oriented, PHP-based applications. Comprehensive discussions of these general principles exist both on-line and in printed form. 
+Magentoはオブジェクト指向PHPベースアプリケーションのコア構造原則を組み入れます。これらの総合的原則の包括的なディスカッションはオンラインと印刷物であります。
 
-The following discussion focuses on how these topics apply directly to Magento:
+以下のディスカッションはこれらのトピックがどのようにMagentoに直接適用するか焦点を当てています:
 
-* Magento technology stack
-* Magento View Model
-* Extensibility
-* Modularity
-* Event-driven architecture
-* Security
-
-
-
-<i>Information to be added in a later sprint.</i>
+* Magento技術スタック
+* Magentoヴューモデル
+* 拡張性
+* モジュール化
+* イベント駆動構造
+* セキュリティ
 
 
 
-
-
-<h3>Related topics</h3>
-
-<a href="{{ site.gdeurl }}architecture/archi_perspectives/arch_diagrams.html">Architectural diagrams</a>
-
-<a href="{{ site.gdeurl }}architecture/tech-stack.html">Technology stack</a>
-
-<a href="{{ site.gdeurl }}architecture/stack-basics.html">Stack basics</a>
+<i>今後のスプリントで情報は追加される予定です。</i>
 
 
 
-<a href="{{ site.gdeurl }}architecture/versioning.html">Versioning</a>
+
+
+<h3>関連するトピック</h3>
+
+<a href="{{ site.gdeurl }}architecture/archi_perspectives/arch_diagrams.html">構造図</a>
+
+<a href="{{ site.gdeurl }}architecture/tech-stack.html">技術スタック</a>
+
+<a href="{{ site.gdeurl }}architecture/stack-basics.html">Stack基礎</a>
+
+
+
+<a href="{{ site.gdeurl }}architecture/versioning.html">バージョニング</a>
 

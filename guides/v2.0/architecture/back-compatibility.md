@@ -8,10 +8,12 @@ menu_order: 3
 github_link: architecture/back-compatibility.md
 ---
 
-<h2>Backward compatibility</h2>
+<h2>後方互換性</h2>
 
 
-Merchants and developers want the process of upgrading between revisions of Magento 2 to be as easy as possible. For merchants, the process must be cost-effective, while developers want their extensions to be forward-compatible for as long as possible.
+Merchants and developers want the process of upgrading between revisions of Magento 2 to be as easy as possible. 
+小売業者と開発者はMagento2の改訂版のアップグレードの手順が可能な限り簡単であることを望みます。
+For merchants, the process must be cost-effective, while developers want their extensions to be forward-compatible for as long as possible.
 
 To help mitigate these concerns, this release introduces a backward compatibility (BC) policy for PHP code. Magento 2.0 uses Semantic Versioning 2.0.0 to indicate whether a change breaks backward compatibility. Version numbers are in the format MAJOR.MINOR.PATCH, where:
 
